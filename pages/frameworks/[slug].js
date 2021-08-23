@@ -7,7 +7,7 @@ export default function framework({ framework }) {
       <section>
         <h2>✨ Framework</h2>
         <h4>
-          <Link href={"../programming-languages/" + framework.programming_language.slug} key={framework.programming_language.id}>
+          <Link href={"../languages/" + framework.programming_language.slug} key={framework.programming_language.id}>
             <a>{framework.programming_language.name} </a>
           </Link>
            | {framework.name}

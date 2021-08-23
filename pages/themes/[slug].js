@@ -11,7 +11,7 @@ export default function theme({ theme }) {
       <section>
         {theme.programming_languages.map(programming_language => (
           <li>
-            <Link href={"../programming-languages/" + programming_language.slug} key={programming_language.id} replace>
+            <Link href={"../languages/" + programming_language.slug} key={programming_language.id} replace>
               <a>{programming_language.name}</a>
             </Link>
           </li>

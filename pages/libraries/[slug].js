@@ -7,7 +7,7 @@ export default function librarie({ librarie }) {
       <section>
       <h2>📚 Library</h2>
         <h4>
-          <Link href={"../programming-languages/" + librarie.programming_language.slug} key={librarie.programming_language.id}>
+          <Link href={"../languages/" + librarie.programming_language.slug} key={librarie.programming_language.id}>
             <a>{librarie.programming_language.name} </a>
           </Link>
            | {librarie.name}

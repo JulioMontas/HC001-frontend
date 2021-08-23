@@ -12,7 +12,7 @@ export default function platform({ platform }) {
 
       {platform.programming_languages.map(programming_language => (
         <li>
-          <Link href={"../programming-languages/" + programming_language.slug} key={programming_language.id}>
+          <Link href={"../languages/" + programming_language.slug} key={programming_language.id}>
             <a>{programming_language.name}</a>
           </Link>
         </li>

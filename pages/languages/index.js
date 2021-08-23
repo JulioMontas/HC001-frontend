@@ -11,7 +11,7 @@ const Languages = ({ languages, error }) => {
     <ul>
       {languages.map(language => (
         <li>
-          <Link href={"programming-languages/" + language.slug} key={language.id}>
+          <Link href={"languages/" + language.slug} key={language.id}>
             <a>{language.name}</a>
           </Link>
         </li>
