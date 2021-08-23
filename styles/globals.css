@@ -7,10 +7,12 @@ body {
 }
 
 a {
-  color: inherit;
+  color: blue;
   text-decoration: none;
 }
-
+a:hover{
+  color:red;
+}
 * {
   box-sizing: border-box;
 }
