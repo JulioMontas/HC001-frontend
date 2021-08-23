@@ -18,7 +18,7 @@ export default function framework({ framework }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.ioframeworks');
+  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/frameworks');
   const frameworks = await res.json();
 
   const paths = frameworks.map( framework => ({
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.ioframeworks?slug=${slug}`);
+  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/frameworks?slug=${slug}`);
   const data = await res.json();
   const framework = data[0];
   return {

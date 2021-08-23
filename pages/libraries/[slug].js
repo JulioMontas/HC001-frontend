@@ -18,7 +18,7 @@ export default function librarie({ librarie }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.iolibraries');
+  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/libraries');
   const libraries = await res.json();
 
   const paths = libraries.map( librarie => ({
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.iolibraries?slug=${slug}`);
+  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/libraries?slug=${slug}`);
   const data = await res.json();
   const librarie = data[0];
   return {

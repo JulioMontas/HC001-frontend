@@ -21,7 +21,7 @@ const Platform = ({ platforms, error }) => {
 
 Platform.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.ioplatforms');
+    const res = await axios.get('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/platforms');
     const platforms = res.data;
     return { platforms };
   } catch (error) {

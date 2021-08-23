@@ -24,7 +24,7 @@ const Paradigm = ({ paradigms, error }) => {
 
 Paradigm.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.ioparadigms');
+    const res = await axios.get('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/paradigms');
     const paradigms = res.data;
     return { paradigms };
   } catch (error) {

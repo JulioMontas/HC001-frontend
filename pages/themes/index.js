@@ -21,7 +21,7 @@ const Theme = ({ themes, error }) => {
 
 Theme.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.iothemes');
+    const res = await axios.get('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/themes');
     const themes = res.data;
     return { themes };
   } catch (error) {

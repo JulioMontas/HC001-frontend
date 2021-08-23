@@ -22,7 +22,7 @@ export default function theme({ theme }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.iothemes');
+  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/themes');
   const themes = await res.json();
 
   const paths = themes.map( theme => ({
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.iothemes?slug=${slug}`);
+  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/themes?slug=${slug}`);
   const data = await res.json();
   const theme = data[0];
   return {
