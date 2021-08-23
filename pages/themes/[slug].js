@@ -1,16 +1,15 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function paradigm({ paradigm }) {
+export default function theme({ theme }) {
   return(
     <div>
       <section>
-        <h2>🪞 Paradigm</h2>
-        <h4>{paradigm.name}</h4>
-        <p>{paradigm.descriptions}</p>
+        <h2>Theme | {theme.name}</h2>
+        <p>{theme.descriptions}</p>
       </section>
       <section>
-        {paradigm.programming_languages.map(programming_language => (
+        {theme.programming_languages.map(programming_language => (
           <li>
             <Link href={"../programming-languages/" + programming_language.slug} key={programming_language.id} replace>
               <a>{programming_language.name}</a>
@@ -23,11 +22,11 @@ export default function paradigm({ paradigm }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.ioparadigms');
-  const paradigms = await res.json();
+  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.iothemes');
+  const themes = await res.json();
 
-  const paths = paradigms.map( paradigm => ({
-    params: { slug: paradigm.slug },
+  const paths = themes.map( theme => ({
+    params: { slug: theme.slug },
   }));
 
   return {
@@ -38,10 +37,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.ioparadigms?slug=${slug}`);
+  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.iothemes?slug=${slug}`);
   const data = await res.json();
-  const paradigm = data[0];
+  const theme = data[0];
   return {
-    props: { paradigm }
+    props: { theme }
   };
 }
