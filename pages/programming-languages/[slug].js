@@ -10,7 +10,11 @@ export default function language({ language }) {
 
       <ul>
         {language.paradigms.map(paradigm => (
-          <li key={paradigm.id}>{paradigm.Name}</li>
+          <li>
+            <Link href={"../paradigms/" + paradigm.slug} key={paradigm.id}>
+              <a>{paradigm.name}</a>
+            </Link>
+          </li>
         ))}
       </ul>
 
