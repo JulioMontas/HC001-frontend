@@ -31,10 +31,8 @@ export default function framework({ framework }) {
         ))}
       </ul>
 
-      <hr>
-
       <ul>
-        <b>Curator </b> {framework.curator_framework.Name}
+        <b>Curator </b> {framework.curator_framework.name}
       </ul>
 
       </section>
