@@ -1,24 +1,28 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import styles from '../../styles/Home.module.css'
 
 export default function librarie({ librarie }) {
   return(
-    <div>
+    <div className={styles.container}>
       <section>
-      <h2>📚 Library</h2>
-        <h4>
+        <h2>
+          <Link href="../libraries/">
+            <a>Library </a>
+          </Link> of
           <Link href={"../languages/" + librarie.programming_language.slug} key={librarie.programming_language.id}>
-            <a>{librarie.programming_language.name} </a>
+            <a> {librarie.programming_language.name} </a>
           </Link>
-           | {librarie.name}
-         </h4>
+           loading <u>{librarie.name}</u>
+         </h2>
+         <p>{librarie.descriptions}</p>
       </section>
     </div>
   )
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/libraries');
+  const res = await fetch('http://localhost:1337/libraries');
   const libraries = await res.json();
 
   const paths = libraries.map( librarie => ({
@@ -33,7 +37,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/libraries?slug=${slug}`);
+  const res = await fetch(`http://localhost:1337/libraries?slug=${slug}`);
   const data = await res.json();
   const librarie = data[0];
   return {

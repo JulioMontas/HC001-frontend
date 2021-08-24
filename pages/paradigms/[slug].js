@@ -1,15 +1,21 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import styles from '../../styles/Home.module.css'
+
 
 export default function paradigm({ paradigm }) {
   return(
-    <div>
+    <div className={styles.container}>
       <section>
-        <h2>🪞 Paradigm</h2>
-        <h4>{paradigm.name}</h4>
+        <h2>
+          <Link href="../paradigms/">
+            <a>Paradigm</a>
+          </Link> of <u>{paradigm.name}</u>
+        </h2>
         <p>{paradigm.descriptions}</p>
       </section>
       <section>
+      <p>List of programming language that used the paradigm</p>
         {paradigm.programming_languages.map(programming_language => (
           <li>
             <Link href={"../languages/" + programming_language.slug} key={programming_language.id} replace>
@@ -23,7 +29,7 @@ export default function paradigm({ paradigm }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/paradigms');
+  const res = await fetch('http://localhost:1337/paradigms');
   const paradigms = await res.json();
 
   const paths = paradigms.map( paradigm => ({
@@ -38,7 +44,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/paradigms?slug=${slug}`);
+  const res = await fetch(`http://localhost:1337/paradigms?slug=${slug}`);
   const data = await res.json();
   const paradigm = data[0];
   return {

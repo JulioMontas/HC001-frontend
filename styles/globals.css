@@ -9,6 +9,7 @@ body {
 a {
   color: blue;
   text-decoration: none;
+  list-style-type: none;
 }
 a:hover{
   color:red;
@@ -16,3 +17,6 @@ a:hover{
 * {
   box-sizing: border-box;
 }
+ul {
+  list-style-type: none;
+ }

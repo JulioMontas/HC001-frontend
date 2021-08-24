@@ -1,28 +1,32 @@
 import Head from 'next/head'
-import styles from '../../styles/Languages.module.css'
-import axios from 'axios';
 import Link from 'next/link'
+import axios from 'axios';
+import styles from '../../styles/Home.module.css'
+
 
 const Languages = ({ languages, error }) => {
   if (error) {
     return <div>An error occured: {error.message}</div>;
   }
   return (
-    <ul>
-      {languages.map(language => (
-        <li>
-          <Link href={"languages/" + language.slug} key={language.id}>
-            <a>{language.name}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className={styles.container}>
+      <h2>List of Programing Languages</h2>
+      <ul>
+        {languages.map(language => (
+          <li>
+            <Link href={"languages/" + language.slug} key={language.id}>
+              <a>{language.name}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
 Languages.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://d268-2603-7000-6100-385a-48a7-74b2-fc68-fe04.ngrok.io/programming-languages');
+    const res = await axios.get('http://localhost:1337/programming-languages');
     const languages = res.data;
     return { languages };
   } catch (error) {
