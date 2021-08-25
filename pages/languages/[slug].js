@@ -1,31 +1,26 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Language.module.css'
 
 export default function language({ language }) {
   return(
     <div className={styles.container}>
-      <section>
-        <h2>
-          <u>{language.name}</u>
-          <Link href="../languages/">
-            <a> Programing Language </a>
-          </Link>
-        </h2>
-        <p>{language.biography}</p>
+
+      <section className={styles.infoIntro}>
+        hello
       </section>
 
-      <section>
-      <ul>
-        <b>Paradigms</b>
-        {language.paradigms.map(paradigm => (
-          <li>
-            <Link href={"../paradigms/" + paradigm.slug} key={paradigm.id}>
-              <a>{paradigm.name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <section className={styles.infoText}>
+      <h2>
+        <u>{language.name}</u>
+        <Link href="../languages/">
+          <a> Programing Language </a>
+        </Link>
+      </h2>
+      <p>{language.biography}</p>
+    </section>
+
+      <section className={styles.infoBox}>
       <ul>
         <b>Platforms</b>
         {language.platforms.map(platform => (
@@ -36,6 +31,18 @@ export default function language({ language }) {
           </li>
         ))}
       </ul>
+
+      <ul>
+        <b>Paradigms</b>
+        {language.paradigms.map(paradigm => (
+          <li>
+            <Link href={"../paradigms/" + paradigm.slug} key={paradigm.id}>
+              <a>{paradigm.name}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
       <ul>
         <b>Influenced By</b>
         {language.influenced_bies.map(influenced_b => (
