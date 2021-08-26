@@ -1,18 +1,21 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Language.module.css'
 
 export default function theme({ theme }) {
   return(
+
     <div className={styles.container}>
-      <section>
+
+      <section className={styles.infoText}>
         <h2> <u>{theme.name}</u>
         <Link href="../themes/">
           <a> Theme</a>
         </Link></h2>
         <p>{theme.descriptions}</p>
       </section>
-      <section>
+
+      <section className={styles.infoBox}>
         <p>List of programming language that used this theme</p>
         {theme.programming_languages.map(programming_language => (
           <li>
@@ -22,6 +25,7 @@ export default function theme({ theme }) {
           </li>
         ))}
       </section>
+
     </div>
   )
 }

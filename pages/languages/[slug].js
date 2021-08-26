@@ -6,10 +6,6 @@ export default function language({ language }) {
   return(
     <div className={styles.container}>
 
-      <section className={styles.infoIntro}>
-        hello
-      </section>
-
     <section className={styles.infoText}>
       <h2>
         <u>{language.name}</u>

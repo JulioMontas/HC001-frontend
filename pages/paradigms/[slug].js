@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
-
+import styles from '../../styles/Language.module.css'
 
 export default function paradigm({ paradigm }) {
   return(
     <div className={styles.container}>
-      <section>
+      <section className={styles.infoText}>
         <h2>
           <Link href="../paradigms/">
             <a>Paradigm</a>
@@ -14,7 +13,7 @@ export default function paradigm({ paradigm }) {
         </h2>
         <p>{paradigm.descriptions}</p>
       </section>
-      <section>
+      <section className={styles.infoBox}>
       <p>List of programming language that used the paradigm</p>
         {paradigm.programming_languages.map(programming_language => (
           <li>

@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Language.module.css'
 
 export default function librarie({ librarie }) {
   return(
     <div className={styles.container}>
-      <section>
+
+      <section className={styles.infoText}>
         <h2>
           <Link href="../libraries/">
             <a>Library </a>

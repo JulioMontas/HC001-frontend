@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Language.module.css'
 
 export default function framework({ framework }) {
   return(
     <div className={styles.container}>
 
-      <section>
+      <section className={styles.infoText}>
         <h2>
           <Link href="../frameworks/">
           <a>Framework </a>
@@ -19,22 +19,24 @@ export default function framework({ framework }) {
          <p>{framework.descriptions}</p>
       </section>
 
-      <section>
+      <section className={styles.infoBox}>
       <ul>
-        <b>Themes</b>
-        {framework.themes.map(theme => (
+        <li>
+          <b>Curator </b> {framework.curator_framework.name}
+        </li>
+      </ul>
+        <ul>
           <li>
-            <Link href={"../themes/" + theme.slug} key={theme.id}>
-              <a>{theme.name}</a>
-            </Link>
+            <b>Themes</b>
+            {framework.themes.map(theme => (
+              <li>
+                <Link href={"../themes/" + theme.slug} key={theme.id}>
+                  <a>{theme.name}</a>
+                </Link>
+              </li>
+            ))}
           </li>
-        ))}
-      </ul>
-
-      <ul>
-        <b>Curator </b> {framework.curator_framework.name}
-      </ul>
-
+        </ul>
       </section>
     </div>
   )
