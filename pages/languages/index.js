@@ -1,37 +1,53 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import axios from 'axios';
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Language.module.css'
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
+export default function language({ programmingLanguages }) {
 
-const Languages = ({ languages, error }) => {
-  if (error) {
-    return <div>An error occured: {error.message}</div>;
-  }
-  return (
+  console.log(programmingLanguages);
+
+  return(
     <div className={styles.container}>
-      <h2>List of Programing Languages</h2>
-      <ul>
-        {languages.map(language => (
-          <li>
-            <Link href={"languages/" + language.slug} key={language.id}>
-              <a>{language.name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+
+      <section className={styles.infoIntro}>
+      {programmingLanguages.map(programmingLanguage => (
+        <li>
+          <Link href={"languages/" + programmingLanguage.slug} key={programmingLanguage.id}>
+            <a>{programmingLanguage.name}</a>
+          </Link>
+        </li>
+      ))}
+      </section>
+
+      <section className={styles.infoText}>
+      hello
+      </section>
+
+
     </div>
-  );
-};
+  )
+}
 
-Languages.getInitialProps = async ctx => {
-  try {
-    const res = await axios.get('http://localhost:1337/programming-languages');
-    const languages = res.data;
-    return { languages };
-  } catch (error) {
-    return { error };
+export async function getStaticProps() {
+  const client = new ApolloClient({
+    uri: "http://localhost:1337/graphql",
+    cache: new InMemoryCache()
+  });
+  const { data } = await client.query({
+    query: gql`
+      query getProgrammingLanguages{
+        programmingLanguages{
+          id
+          slug
+          name
+        }
+      }
+    `,
+  });
+  return{
+    props:{
+      programmingLanguages: data.programmingLanguages,
+    }
   }
-};
-
-export default Languages;
+}
