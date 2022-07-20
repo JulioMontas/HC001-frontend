@@ -58,7 +58,7 @@ export default function curator({ curator }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://localhost:1337/curators');
+  const res = await fetch('http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/curators');
   const curators = await res.json();
 
   const paths = curators.map( curator => ({
@@ -73,7 +73,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://localhost:1337/curators?slug=${slug}`);
+  const res = await fetch(`http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/curators?slug=${slug}`);
   const data = await res.json();
   const curator = data[0];
   return {

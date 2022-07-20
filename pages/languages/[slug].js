@@ -94,7 +94,7 @@ export default function language({ language }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://localhost:1337/programming-languages');
+  const res = await fetch('http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/programming-languages');
   const languages = await res.json();
 
   const paths = languages.map(language => ({
@@ -109,7 +109,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://localhost:1337/programming-languages?slug=${slug}`);
+  const res = await fetch(`http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/programming-languages?slug=${slug}`);
   const data = await res.json();
   const language = data[0];
   return {

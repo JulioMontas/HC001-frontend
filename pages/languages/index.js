@@ -26,7 +26,7 @@ const Languages = ({ languages, error }) => {
 
 Languages.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://localhost:1337/programming-languages');
+    const res = await axios.get('http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/programming-languages');
     const languages = res.data;
     return { languages };
   } catch (error) {

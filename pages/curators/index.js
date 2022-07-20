@@ -25,7 +25,7 @@ const Curator = ({ curators, error }) => {
 
 Curator.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://localhost:1337/curators');
+    const res = await axios.get('http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/curators');
     const curators = res.data;
     return { curators };
   } catch (error) {

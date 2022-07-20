@@ -27,7 +27,7 @@ export default function platform({ platform }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('http://localhost:1337/platforms');
+  const res = await fetch('http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/platforms');
   const platforms = await res.json();
 
   const paths = platforms.map( platform => ({
@@ -42,7 +42,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetch(`http://localhost:1337/platforms?slug=${slug}`);
+  const res = await fetch(`http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/platforms?slug=${slug}`);
   const data = await res.json();
   const platform = data[0];
   return {

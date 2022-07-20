@@ -25,7 +25,7 @@ const Framework = ({ frameworks, error }) => {
 
 Framework.getInitialProps = async ctx => {
   try {
-    const res = await axios.get('http://localhost:1337/frameworks');
+    const res = await axios.get('http://b19d-2603-7000-6101-4f63-f1d4-2a08-4e59-db0d.ngrok.io/frameworks');
     const frameworks = res.data;
     return { frameworks };
   } catch (error) {
