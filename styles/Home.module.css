@@ -1,11 +1,6 @@
 .container {
-  width: 1080px;
-  margin: 0 auto;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  padding: 0 1.25rem;
 }
 
 .main {
@@ -36,7 +31,7 @@
   align-items: center;
 }
 
-.title a {
+/* .title a {
   color: #0070f3;
   text-decoration: none;
 }
@@ -51,7 +46,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
-}
+} */
 
 .title,
 .description {
@@ -115,9 +110,108 @@
   height: 1em;
 }
 
-@media (max-width: 600px) {
+
+
+
+
+
+/* HOMEPAGE */
+.introSplash{
+  padding: 4em 0;
+}
+
+/* List of website */
+.btaCard{
+  display: grid;
+  grid-template-columns:1fr;
+  gap:2em;
+  width: 100%;
+}
+.btaCard a{
+  color: #333;
+  font-weight: bold;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  display: grid;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  height: 80px;
+  padding: 1em 0.5em;
+  border: 1px solid #999;
+  border-radius: 10px;
+  transition: all 0.4s;
+  opacity: 0.6;
+}
+.btaCard a:hover{
+  color: #000;
+  border: 1px solid #333;
+  transform: scale(0.9);
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.title{
+  text-align: left;
+  font-size: 1.8em;
+  line-height: 1.4em;
+}
+
+
+
+
+
+/* Mobile 320px  */
+@media screen and (min-width: 30em) {}
+/* Table */
+@media screen and (min-width: 40em) {
+  .btaCard{
+    grid-template-columns:1fr 1fr 1fr;
+  }
+}
+/* Desktop 980px to 1280px  */
+@media screen and (min-width: 57em) {
+  .introSplash{
+    padding: 8em 0;
+  }
   .grid {
     width: 100%;
     flex-direction: column;
+    background: red;
+  }
+  .btaCard{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:1.5em;
+  }
+  .container {
+    width: 1280px;
+    margin: 0 auto;
+  }
+  .btaCard a:hover{
+    transform: scale(1.1);
+  }
+  .title{
+    font-size: 4em;
+    line-height: 1.4em;
+  }
+}
+/* Desktop 1920px */
+@media screen and (min-width: 120em) {
+  .container {
+    width: 1900px;
+  }
+  .btaCard{
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
   }
 }

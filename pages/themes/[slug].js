@@ -8,10 +8,7 @@ export default function theme({ theme }) {
     <div className={styles.container}>
 
       <section className={styles.infoText}>
-        <h2> <u>{theme.name}</u>
-        <Link href="../themes/">
-          <a> Theme</a>
-        </Link></h2>
+        <h2> <u>{theme.name}</u> Stack</h2>
         <p>{theme.descriptions}</p>
       </section>
 

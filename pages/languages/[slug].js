@@ -8,11 +8,9 @@ export default function language({ language }) {
 
     <section className={styles.infoText}>
       <h2>
-        <u>{language.name}</u>
-        <Link href="../languages/">
-          <a> Programing Language </a>
-        </Link>
+        <u>{language.name}</u> Style Guide
       </h2>
+      <b>History</b>
       <p>{language.biography}</p>
     </section>
 
@@ -81,7 +79,7 @@ export default function language({ language }) {
         ))}
       </ul>
       <ul>
-        <b>Themes</b>
+        <b>Stack</b>
         {language.themes.map(theme => (
           <li>
             <Link href={"../themes/" + theme.slug} key={theme.id}>
